@@ -7,6 +7,13 @@ module.exports = {
 		publicPath: '/dist/',
 		filename: '[name].[chunkhash].js'
 	},
+	resolve: {
+		modules: [path.resolve(__dirname, './'), 'node_modules'],  // adding ./ to work with absolute path from project
+		extensions: ['.js', '.vue'],
+		alias: {
+			'@': path.resolve(__dirname, 'src/')
+		}
+	},
 	module: {
 		rules: [
 			{

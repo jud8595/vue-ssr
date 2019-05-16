@@ -13,14 +13,20 @@ const server = express()
 server.get('*', (req, res) => {
   const context = { url: req.url }
 
-  const app = createApp.default(context)
+  const promise = createApp.default(context)
   
-  // Render the Vue instance to HTML
-  renderer.renderToString(app, (err, html) => {
-    if (err) throw err
-	console.log(html)
-    res.end(html)
-  })
+  promise.then(app => {
+	  // Render the Vue instance to HTML
+	  renderer.renderToString(app, (err, html) => {
+		if (err) throw err
+		console.log(html)
+		res.end(html)
+	  })
+  }).catch(val => {
+	  console.log(JSON.stringify(val))
+	  res.end(JSON.stringify(val))
+  });
+  
 })
 
 server.listen(3000, function () {

@@ -1,7 +1,6 @@
 <template>
-  <div id="app">
+  <div id="hello">
     <p>{{greeting}} World!</p>
-    <router-view></router-view>
   </div>
 </template>
 
@@ -14,3 +13,4 @@
 	}
   }
 </script>
+
