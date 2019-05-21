@@ -7,9 +7,9 @@
 <script>
   module.exports = {
     data: function() {
-	  return {
-	    name: 'Home'
+	    return {
+	      name: 'Home'
+	    }
 	  }
-	}
   }
 </script>

@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head><title>Vue SSR rendering</title></head>
+  <head>
+    <title>Vue SSR rendering</title>
+    <link href="data:image/x-icon;" rel="shortcut icon" /> <!-- prevents favicon.ico requests -->
+  </head>
   <body>
-    <!--vue-ssr-outlet-->
+	  <!--vue-ssr-outlet--> <!-- vue-server-renderer looks for vue-ssr-outlet to inject the rendererd -->
+    <script type="text/javascript" src="dist/app.js"></script> <!-- inject script after vue-ssr-outlet comment to make sure DOM is loaded first -->
   </body>
 </html>

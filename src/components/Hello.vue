@@ -1,6 +1,6 @@
 <template>
   <div id="hello">
-    <p>{{greeting}} World!</p>
+    <p>This is {{name}} Page!</p>
   </div>
 </template>
 

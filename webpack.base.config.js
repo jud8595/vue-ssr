@@ -5,7 +5,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, './dist'),
 		publicPath: '/dist/',
-		filename: '[name].[chunkhash].js'
+		filename: '[name].js'
 	},
 	resolve: {
 		modules: [path.resolve(__dirname, './'), 'node_modules'],  // adding ./ to work with absolute path from project

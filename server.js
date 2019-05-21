@@ -10,8 +10,12 @@ const renderer = require('vue-server-renderer').createRenderer({
 
 const server = express()
 
+// serving static resources (not as vue routes!)
+server.use('/dist', express.static(__dirname + '/dist'));
+
 server.get('*', (req, res) => {
-  const context = { url: req.url }
+	const context = { url: req.url }
+	console.log('**incoming request: ' + req.url);
 
   const promise = createApp.default(context)
   
@@ -24,7 +28,7 @@ server.get('*', (req, res) => {
 	  })
   }).catch(val => {
 	  console.log(JSON.stringify(val))
-	  res.end(JSON.stringify(val))
+	  res.status(500).end(JSON.stringify(val))
   });
   
 })
