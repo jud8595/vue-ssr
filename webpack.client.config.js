@@ -5,5 +5,10 @@ const base = require('./webpack.base.config')
 module.exports = merge(base, {
   entry: {
     app: './entry-client.js'
-  }
+  },
+  resolve: {
+    alias: {
+      'create-api': './create-api-client.js'
+    }
+  },
 });

@@ -14,14 +14,19 @@ module.exports = merge(base, {
   
   // For bundle renderer source map support
   devtool: '#source-map',
-  
-    
+      
   output: {
     filename: 'server-bundle.js',
 	  // output.libraryTarget: Configure how the library will be exposed.
 	  // commonjs2: The return value of the entry point will be assigned to the module.exports
 	  // cf https://stackoverflow.com/questions/38289019/require-webpack-bundle-returns-empty-object
 	  libraryTarget: 'commonjs2'
+  },
+
+  resolve: {
+    alias: {
+      'create-api': './create-api-server.js'
+    }
   },
 
   // This is the plugin that turns the entire output of the server build
