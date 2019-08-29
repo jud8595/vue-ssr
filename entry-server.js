@@ -12,6 +12,7 @@ export default context => {
     router.push(context.url)
 
     // wait until router has resolved possible async components and hooks
+    // onReady is called when the router has completed the initial navigation
     router.onReady(() => {
       const matchedComponents = router.getMatchedComponents()
       // no matched routes, reject with 404
@@ -19,6 +20,9 @@ export default context => {
         return reject({ status: 404, description: 'router error', route: context.url })
       }
 
+      // when router is ready, router state is up to date
+      // router.afterEach commits a store mutation ROUTE_CHANGED
+      // when router.push is done, router.afterEach is called and mutates store (synchronously), then router.onReady is called
       context.rendered = () => {
         context.state = store.state
       }

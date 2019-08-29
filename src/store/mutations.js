@@ -4,5 +4,8 @@ export default {
     },
     decrement(state) {
         state.count--
+    },
+    firstIncrement(state) {
+        state.firstIncrement = true
     }
 }

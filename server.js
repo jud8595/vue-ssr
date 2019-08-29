@@ -22,9 +22,7 @@ server.get('*', (req, res) => {
   delete require.cache[require.resolve('./dist/vue-ssr-server-bundle.json')]; 
   const bundle = require('./dist/vue-ssr-server-bundle.json');
   
-  console.log(JSON.stringify(bundle).substr(JSON.stringify(bundle).indexOf('abc'), 8))
-
-  // when using createBundleRenderer, bundle has an entry point which exports a function with a context argument and return a Promise
+    // when using createBundleRenderer, bundle has an entry point which exports a function with a context argument and return a Promise
   // https://github.com/GeekyAnts/vue-native-core/tree/master/packages/vue-server-renderer#creating-the-server-bundle
   const renderer = createBundleRenderer(bundle, {
     basedir: resolve('./dist'),

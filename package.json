@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node server",
+    "dev": "node --inspect=0.0.0.0:9229 server",
     "build": "npm run build:client && npm run build:server",
     "build:client": "webpack --watch --config webpack.client.config.js --progress --hide-modules",
     "build:server": "webpack --watch --config webpack.server.config.js --progress --hide-modules"

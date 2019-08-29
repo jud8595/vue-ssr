@@ -11,7 +11,7 @@ export function createApp () {
   const router = createRouter()
   const store = createStore()
 
-  // sync so that route state is available as part of the store
+  // sync so that route state is available as part of the store. Router will commit a store mutation.
   sync(store, router)
   
   const app = new Vue({

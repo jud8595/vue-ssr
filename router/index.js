@@ -10,8 +10,6 @@ Vue.use(Router)
 //const Home = () => import('@/components/Home')     // @ is an alias for /src directory that is setup in webpack
 //const Hello = () => import('@/components/Hello')
 
-const test = {'r':'r'}
-
 export function createRouter () {
   return new Router({
     mode: 'history',
