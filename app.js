@@ -16,6 +16,8 @@ export function createApp () {
   
   const app = new Vue({
     router,
+    // provide the store using the "store" option.
+    // this will inject the store instance to all child components.
     store,
     // the root instance simply renders the App component.
     render: h => h(App)
