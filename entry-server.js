@@ -6,7 +6,7 @@ export default context => {
   // everything is ready before rendering.
   return new Promise((resolve, reject) => {
     //const { app, router } = createApp()
-    const { app, router } = createApp()
+    const { app, router, store } = createApp()
 
     // set server-side router's location
     router.push(context.url)
@@ -17,6 +17,10 @@ export default context => {
       // no matched routes, reject with 404
       if (!matchedComponents.length) {
         return reject({ status: 404, description: 'router error', route: context.url })
+      }
+
+      context.rendered = () => {
+        context.state = store.state
       }
 
       // the Promise should resolve to the app instance so it can be rendered
